@@ -1,0 +1,39 @@
+{
+  "name": "oglive-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^1.5.0",
+    "@uiw/react-md-editor": "^3.6.3",
+    "axios": "^0.21.4",
+    "graphql": "^15.5.3",
+    "graphql-request": "^3.5.0",
+    "gsap": "^3.7.1",
+    "katex": "^0.13.18",
+    "mermaid": "^8.12.1",
+    "modern-css-reset": "^1.4.0",
+    "next": "^11.1.2",
+    "next-remove-imports": "^1.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-spring": "^9.2.4",
+    "sass": "^1.39.2",
+    "swr": "1.0.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.11.1",
+    "@types/mermaid": "^8.2.7",
+    "@types/react": "^17.0.20",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "^4.4.3"
+  }
+}

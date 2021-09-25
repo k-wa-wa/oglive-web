@@ -1,0 +1,46 @@
+.root {
+    text-align: center;
+    position: relative;
+    transition: 0.3s all ease-in-out;
+
+    .item {
+        display: inline-block;
+        cursor: default;
+        .imgBox {
+            border-radius: 50%;
+            background-color: rgba(220, 220, 220, 1);
+            img {
+                transition: 0.3s all ease-in-out;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+        .name {
+            font-size: 1.2rem;
+        }
+    }
+    .tooltip {
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0.001s transform;
+        z-index: 2;
+        width: 20%;
+        background-color: rgba(120, 120, 120, 0.8);
+        padding: 40px;
+        border-radius: 10%;
+        text-align: left;
+        overflow-wrap: break-word;
+    }
+    @media screen and (min-width: 769px) {
+        .item {
+            &:hover {
+                ~ .tooltip {
+                    display: block;
+                }
+            }
+        }
+    }
+}

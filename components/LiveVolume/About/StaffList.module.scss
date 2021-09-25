@@ -1,0 +1,10 @@
+.root {
+    // responsive
+    display: flex;
+    flex-wrap: wrap;
+    .itemBox {
+        flex: 1 0 250px;
+        padding: 2rem 0;
+        text-align: center;
+    }
+}

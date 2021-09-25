@@ -1,0 +1,33 @@
+html {
+    font-size: 62.5%;
+    h1 {
+        font-size: 2.4rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.6rem;
+    }
+    h4,
+    h5,
+    h6,
+    a,
+    p {
+        font-size: 1.2rem;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+        font-size: 87.5%;
+    }
+    @media screen and (min-width: 769px) {
+        font-size: 100%;
+        h4,
+        h5,
+        h6,
+        a,
+        p {
+            font-size: 1rem;
+        }
+    }
+}

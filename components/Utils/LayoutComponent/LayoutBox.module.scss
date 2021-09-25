@@ -1,0 +1,57 @@
+.root {
+    position: relative;
+    .line {
+        border-top: solid 1px;
+        width: 9rem;
+        top: 10%;
+        height: 0px;
+    }
+    .vertical {
+        position: relative;
+        white-space: nowrap;
+        margin: 2rem 0 2rem 1rem;
+        top: 10%;
+        h2 {
+            position: relative;
+            top: 0;
+            display: inline-block;
+            font-family: "Alegreya Sans SC";
+            font-size: 1.8rem;
+        }
+        .img {
+            position: relative;
+            display: inline-block;
+            margin-left: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+    .box {
+        padding-bottom: 12rem;
+        font-family: "Sawarabi Mincho";
+        font-size: 1.2rem;
+    }
+
+    @media screen and (min-width: 769px) {
+        display: flex;
+        .line {
+            flex: 1;
+            width: 60px;
+            position: sticky;
+        }
+        .vertical {
+            flex: 1;
+            writing-mode: vertical-lr;
+            margin: 0 5% 0 3%;
+            height: 10rem;
+            position: sticky;
+            .img {
+                margin-left: 0;
+                margin-top: 1.5rem;
+            }
+        }
+        .box {
+            flex: 15;
+        }
+    }
+}

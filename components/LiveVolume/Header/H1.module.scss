@@ -1,0 +1,12 @@
+.root {
+    display: inline-block;
+    z-index: 2;
+    h1 {
+        font-family: "Sawarabi Mincho";
+        margin: 1rem;
+        margin-left: 60px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}

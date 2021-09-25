@@ -1,0 +1,51 @@
+.root {
+    &:hover {
+        pointer-events: none;
+    }
+    .boxEven,
+    .boxOdd {
+        height: 90px;
+        background: rgba(240, 240, 240, 1);
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    .boxOdd {
+        &::before {
+            background: rgba(180, 180, 180, 1);
+            animation: anim 3s infinite;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes anim {
+            0% {
+                right: 0;
+                left: 100%;
+                width: 0;
+            }
+            25% {
+                right: 0;
+                left: 0;
+                width: 100%;
+            }
+            50% {
+                right: 100%;
+                left: 0;
+                width: 0;
+            }
+            75% {
+                right: 0;
+                left: 0;
+                width: 100%;
+            }
+            100% {
+                right: 0;
+                left: 100%;
+                width: 0;
+            }
+        }
+    }
+}

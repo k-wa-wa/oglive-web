@@ -1,0 +1,31 @@
+.root {
+    position: relative;
+    .bottom {
+        text-align: right;
+        margin: 10px;
+        div {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .back {
+            border-left: 4px solid #000;
+            border-bottom: 4px solid #000;
+        }
+        .next {
+            border-top: 4px solid #000;
+            border-right: 4px solid #000;
+        }
+        .back,
+        .next {
+            position: relative;
+            top: 2px;
+            width: 18px;
+            height: 18px;
+            transform: rotate(45deg);
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,20 @@
+.root {
+    width: 100%;
+    padding: 1.5em 0;
+    text-align: left;
+    .header {
+        max-width: 1024px;
+        margin: 0 auto;
+        display: flex;
+        .title {
+            margin-right: auto;
+            h1 {
+                padding-left: 1.5rem;
+                font-family: "Sawarabi Mincho";
+            }
+        }
+        .icon {
+            margin: auto 0.8rem;
+        }
+    }
+}

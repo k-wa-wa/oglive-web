@@ -1,0 +1,36 @@
+.root {
+    display: inline;
+    padding: 0.7rem;
+    .new {
+        vertical-align: top;
+        font-size: 0.8rem;
+        color: red;
+        display: inline-block;
+        animation: rotateAnimation 1.5s infinite alternate, colorAnimation 2s infinite alternate;
+        @keyframes rotateAnimation {
+            50% {
+                transform: rotateX(360deg);
+            }
+            100% {
+                transform: rotateX(360deg);
+            }
+        }
+        @keyframes colorAnimation {
+            20% {
+                color: #00ffff;
+            }
+            40% {
+                color: #ffff00;
+            }
+            60% {
+                color: #000000;
+            }
+            80% {
+                color: #00ff00;
+            }
+            100% {
+                color: #ff00ff;
+            }
+        }
+    }
+}

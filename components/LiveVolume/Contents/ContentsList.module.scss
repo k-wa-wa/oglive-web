@@ -1,0 +1,19 @@
+.root {
+    position: relative;
+    z-index: 1;
+    .container {
+        position: relative;
+        height: 90px;
+        .item {
+            position: absolute;
+            padding-left: 5%;
+            top: 10%;
+            .updatedAt {
+                font-size: 0.8rem;
+            }
+            .title {
+                padding: 0 10px;
+            }
+        }
+    }
+}

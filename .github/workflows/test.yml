@@ -1,0 +1,26 @@
+name: test
+on:
+  pull_request:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+          with:
+            node-version: ${{ matrix.node-version }}
+      - name: install dependencies
+        run: yarn install # vercelと揃える
+      - name: lint test
+        run: yarn lint
+      - name: build test
+        run: yarn build
