@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v2
       - name: setup node ${{ matrix.node-version }}
         uses: actions/setup-node@v2
-          with:
-            node-version: ${{ matrix.node-version }}
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: install dependencies
         run: yarn install # vercelと揃える
       - name: lint test
