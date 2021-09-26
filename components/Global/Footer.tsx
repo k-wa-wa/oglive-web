@@ -48,14 +48,14 @@ const Footer = () => {
         <div className={styles.box}>
           <h4>About this website</h4>
           <div>
-            <a href="" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ko-he-e/oglive-web" target="_blank" rel="noopener noreferrer">
               <Image src="/icons/search.svg" width={16} height={16} alt="search" />
               <span>View source</span>
             </a>
           </div>
 
           <div>
-            <a href="" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ko-he-e/oglive-web/issues" target="_blank" rel="noopener noreferrer">
               <Image src="/icons/bug.svg" width={16} height={16} alt="bug" />
               <span>Report a bug</span>
             </a>
