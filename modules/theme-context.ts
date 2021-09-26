@@ -22,10 +22,10 @@ export const themes: { light: themeType, dark: themeType } = {
     ),
     repeating-radial-gradient(
       ellipse at 60% 500%,
-      #c08646,
-      #c08646 0.2%,
-      #d09352 0.6%,
-      #d09352 1%
+      rgba(242, 184, 130, 0.4),
+      rgba(242, 184, 130, 0.4) 0.2%,
+      rgba(252, 206, 180, 0.4) 0.6%,
+      rgba(252, 206, 180, 0.4) 1%
     )
     `,
     foreground: "",
