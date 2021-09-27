@@ -36,8 +36,7 @@ jobs:
         with:
           ref: dev
       - name: create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: repo-sync/pull-request@v2
         with:
-          branch: dev
-          base: master
-
+          pr_title: "Pulling ${{ github.ref }} into master"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
