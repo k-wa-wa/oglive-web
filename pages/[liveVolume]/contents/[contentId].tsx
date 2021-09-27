@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import ContentBody from "@/components/LiveVolume/Content/ContentBody";
 import LiveVolHeader from "@/components/LiveVolume/Header/LiveVolHeader";
 
-
 const Content = () => {
   const router = useRouter();
   const { liveVolume, contentId } = router.query;
@@ -18,4 +17,5 @@ const Content = () => {
   );
 };
 
-export default Content;
+//export default Content;
+export default withPageAuthRequired(Content);

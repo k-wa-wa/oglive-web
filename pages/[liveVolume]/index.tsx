@@ -20,5 +20,5 @@ const Home = () => {
   );
 };
 
-export default Home;
-//export default withPageAuthRequired(Home);
+//export default Home;
+export default withPageAuthRequired(Home);
