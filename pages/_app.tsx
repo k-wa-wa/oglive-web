@@ -2,7 +2,7 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import { AppProps } from "next/app";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
 import Footer from "@/components/Global/Footer";
 import Header from '@/components/Global/Header/Header';
@@ -27,6 +27,13 @@ const App = ({ Component, pageProps }: AppProps) => {
     background: theme.background,
     color: theme.text,
   };
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width < 769) {
+      setTheme(themes.dark);
+    }
+  }, []);
   return (
     <UserProvider>
       <div className={styles.root} style={style}>
