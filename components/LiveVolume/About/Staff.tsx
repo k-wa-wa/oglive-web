@@ -37,7 +37,7 @@ const Staff: React.VFC<Props> = (props) => {
     <div className={styles.root}>
       <div className={styles.item}>
         <div className={styles.imgBox}>
-          <Image src={staff.imageUrl} width={imgSize} height={imgSize} objectFit="cover" alt="staff" />
+          <Image src={staff.imageUrl} width={imgSize} height={imgSize} alt="staff" />
         </div>
       </div>
 
@@ -54,6 +54,10 @@ const Staff: React.VFC<Props> = (props) => {
       </div>
 
       <br />
+
+      <div className={styles.commentBox}>
+        <p><span>コメント:</span> {staff.comment}</p>
+      </div>
 
       <div className={styles.tooltip}
         style={{ transform: `translate(${mouseX}px, ${mouseY}px) translateX(${translateX})` }}>

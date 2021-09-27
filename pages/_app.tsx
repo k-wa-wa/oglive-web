@@ -2,23 +2,18 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import { AppProps } from "next/app";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
 import Footer from "@/components/Global/Footer";
 import Header from '@/components/Global/Header/Header';
-import Parallax from '@/components/Utils/Animation/Parallax';
 import ToPageTopButton from "@/components/Utils/ToPageTopBtn";
 import styles from "@/components/_app.module.scss";
 import { ThemeContext, themes } from "@/modules/theme-context";
 
-
-
 import "modern-css-reset/dist/reset.min.css";
 import "@/styles/global.scss";
 
-
 const liveVolumeRegex = /^vol[1-9][0-9]$/;
-
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -32,6 +27,13 @@ const App = ({ Component, pageProps }: AppProps) => {
     background: theme.background,
     color: theme.text,
   };
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width < 769) {
+      setTheme(themes.dark);
+    }
+  }, []);
   return (
     <UserProvider>
       <div className={styles.root} style={style}>

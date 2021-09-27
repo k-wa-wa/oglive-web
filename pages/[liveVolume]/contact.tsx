@@ -3,10 +3,6 @@ import { useRouter } from "next/router";
 import ContactBody from "@/components/LiveVolume/Contact/ContactBody";
 import LiveVolHeader from "@/components/LiveVolume/Header/LiveVolHeader";
 
-
-
-
-
 const Contact = () => {
   const router = useRouter();
   const { liveVolume } = router.query;
@@ -22,4 +18,5 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+//export default Contact;
+export default withPageAuthRequired(Contact);

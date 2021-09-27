@@ -7,7 +7,7 @@ const StaffList = () => {
   //const staffData = data.length >= 1 ? data : []
   const staffData = [
     { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "1", comment: "comment"}, 
-    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "2", comment: "" },
+    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "2", comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
     { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "3", comment: "" }, 
     { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "4", comment: "" },
     { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "5", comment: "" }
