@@ -20,6 +20,19 @@
             font-size: 1.2rem;
         }
     }
+    .commentBox {
+        display: block;
+        margin: 1rem auto 0;
+        max-width: 225px; // ./StaffList.module.scssのflexの値と対応させる
+        p {
+            text-align: left;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            > span {
+                text-decoration: underline;
+            }
+        }
+    }
     .tooltip {
         display: none;
         position: fixed;
@@ -41,6 +54,9 @@
                     display: block;
                 }
             }
+        }
+        .commentBox {
+            display: none;
         }
     }
 }
