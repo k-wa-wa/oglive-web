@@ -25,7 +25,7 @@ const Account = () => {
           </a>
 
           <a className={styles.action} style={{ color: theme.text }}>
-            Settings
+            Settings(作成中)
           </a>
         </div>
       </div>

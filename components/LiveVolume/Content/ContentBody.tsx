@@ -27,7 +27,7 @@ const ContentBody: React.VFC<Props> = (props) => {
       </Reveal>
 
       <Reveal>
-        <LayoutBox title={""} img={"/guitar01.png"}>
+        <LayoutBox title="" img="/guitar01.png">
           <MdViewer body={data.body} />
         </LayoutBox>
       </Reveal>
