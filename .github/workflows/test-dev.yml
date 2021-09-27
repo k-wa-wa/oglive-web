@@ -38,6 +38,5 @@ jobs:
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: dev
           base: master
 
