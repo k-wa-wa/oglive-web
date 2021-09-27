@@ -26,5 +26,14 @@ jobs:
         run: yarn lint
       - name: build test
         run: yarn build
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: dev
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
+        with:
+          branch: dev
