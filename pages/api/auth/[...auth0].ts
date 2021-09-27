@@ -5,4 +5,4 @@ const handler = () => {
   return initAuth0({ baseURL: `https://${process.env.VERCEL_URL}` }).handleAuth();
 };
 
-export default handler;
+export default handler();
