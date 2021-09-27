@@ -26,3 +26,5 @@ jobs:
         run: yarn lint
       - name: build test
         run: yarn build
+      - name: create pull request
+        uses: peter-evans/create-pull-request@v3
