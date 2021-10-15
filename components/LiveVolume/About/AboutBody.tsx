@@ -1,5 +1,3 @@
-
-import { useEffect, useRef, useState } from "react";
 import StaffList from "@/components/LiveVolume/About/StaffList";
 import Reveal from "@/components/Utils/Animation/Reveal";
 import Error from "@/components/Utils/Error";

@@ -1,6 +1,5 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import Image from "next/image";
-import { useState } from "react";
 
 import styles from "./Account.module.scss";
 import { useThemeContext } from "@/modules/theme-context";

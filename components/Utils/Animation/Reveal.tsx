@@ -1,8 +1,6 @@
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useRef, useState } from "react";
-import Parallax from "./Parallax";
+import { useEffect, useRef } from "react";
 
 import styles from "./Reveal.module.scss";
 

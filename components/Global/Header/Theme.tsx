@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "./Theme.module.scss";
 import { useThemeContext } from "@/modules/theme-context";
 
-
 const Menu = () => {
   const { theme, toggleTheme } = useThemeContext();
   const iconPath = theme.name === "light" ? "/ei-sun.svg" : "/ei-moon.svg";

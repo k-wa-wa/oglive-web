@@ -1,12 +1,5 @@
-
-
-import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useRef } from "react";
-
 import styles from "./HomeBody.module.scss";
 import WhatsNew from "@/components/LiveVolume/Home/WhatsNew";
-import Parallax from "@/components/Utils/Animation/Parallax";
 import Reveal from "@/components/Utils/Animation/Reveal";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";

@@ -4,7 +4,6 @@ import Link from "next/link";
 import styles from "./HomeBody.module.scss";
 import HomeImage from "@/components/Home/HomeImage";
 import Reveal from "@/components/Utils/Animation/Reveal";
-import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import ListBox from "@/components/Utils/LayoutComponent/ListBox";
 import LoadingPage from "@/components/Utils/Loading/LoadingPage";

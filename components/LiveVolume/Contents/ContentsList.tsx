@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import styles from "./ContentsList.module.scss";
 import Error from "@/components/Utils/Error";
@@ -8,10 +7,8 @@ import ListBoxLoading from "@/components/Utils/LayoutComponent/ListBoxLoading";
 import NewIcon from "@/components/Utils/NewIcon";
 import { useSwrReadCmsContentList } from "@/modules/api";
 
-
 const today = new Date();
 const NEW_CONTENT_THRESHOLD = 3; // この日数以内にupdateされたcontentは新しいとみなし、newIconをつける
-
 
 type Props = {
   liveVolume: queryParamsType;

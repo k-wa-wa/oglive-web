@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useThemeContext } from "@/modules/theme-context";
 
 type Props = {

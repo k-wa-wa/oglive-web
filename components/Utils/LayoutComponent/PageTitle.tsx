@@ -1,4 +1,3 @@
-
 import Parallax from "../Animation/Parallax";
 import styles from "./PageTitle.module.scss";
 

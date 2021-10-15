@@ -2,7 +2,7 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import { AppProps } from "next/app";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SWRConfig } from "swr";
 import Footer from "@/components/Global/Footer";
 import Header from '@/components/Global/Header/Header';
