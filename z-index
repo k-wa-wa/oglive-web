@@ -10,3 +10,5 @@ z-indexの管理。
 100 --- @/components/Utils/ToPageTopBtn.module.scss
 100 --- @/components/Global/Header/Account.module.scss
 101 --- @/components/LiveVolume/Header/Hamburger.module.scss
+
+↑ z-indexの理解間違ってた。そのうち書き直す
