@@ -27,15 +27,7 @@ const LayoutBox: React.VFC<Props> = (props) => {
       </div>
 
       <div className={styles.box}>
-        {props.fixedChildren
-          ?
-          props.children
-          :
-          <Parallax animVars={{ y: -150 + Math.random() * 100 }}>
-            {props.children}
-          </Parallax>
-        }
-
+        {props.children}
       </div>
     </div>
   );

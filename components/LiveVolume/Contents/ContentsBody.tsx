@@ -1,6 +1,4 @@
-import Link from "next/link";
 import router from "next/router";
-import { useState } from "react";
 
 import styles from "./ContentsBody.module.scss";
 import ContentsList from "@/components/LiveVolume/Contents/ContentsList";

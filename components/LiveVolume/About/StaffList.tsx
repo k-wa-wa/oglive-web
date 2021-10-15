@@ -1,7 +1,6 @@
 import styles from "./StaffList.module.scss";
 import Staff from "@/components/LiveVolume/About/Staff";
 
-
 const StaffList = () => {
   const data: CmsStaffType[] = [];
   //const staffData = data.length >= 1 ? data : []

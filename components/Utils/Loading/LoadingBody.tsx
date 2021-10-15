@@ -1,4 +1,3 @@
-
 import styles from "./LoadingBody.module.scss";
 
 const LoadingBody = () => {

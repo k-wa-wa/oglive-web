@@ -1,4 +1,3 @@
-
 import styles from "./ListBox.module.scss";
 
 type Props = {

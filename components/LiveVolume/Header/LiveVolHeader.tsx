@@ -3,9 +3,6 @@ import { useState } from 'react';
 import styles from "./LiveVolHeader.module.scss";
 import H1 from '@/components/LiveVolume/Header/H1';
 
-import Parallax from '@/components/Utils/Animation/Parallax';
-import Reveal from "@/components/Utils/Animation/Reveal";
-
 type Props = {
   liveVolume: queryParamsType;
 };

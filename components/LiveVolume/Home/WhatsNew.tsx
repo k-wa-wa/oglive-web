@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import styles from "./WhatsNew.module.scss";
 import ContentsList from "@/components/LiveVolume/Contents/ContentsList";
 import ViewAll from "@/components/LiveVolume/Home/ViewAll";

@@ -1,8 +1,6 @@
-
 import { useEffect, useRef } from "react";
 import styles from "./Canvas.module.scss";
 import { drawText } from "@/modules/canvas";
-
 
 const Canvas = () => {
   const ref = useRef<HTMLCanvasElement>(null);
