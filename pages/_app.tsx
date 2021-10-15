@@ -28,12 +28,12 @@ const App = ({ Component, pageProps }: AppProps) => {
     color: theme.text,
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     const width = window.innerWidth;
     if (width < 769) {
       setTheme(themes.dark);
     }
-  }, []);
+  }, []); */
   return (
     <UserProvider>
       <div className={styles.root} style={style}>
