@@ -14,7 +14,10 @@ html {
     h6,
     a,
     p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+    p {
+        line-height: 3rem;
     }
 
     @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -28,6 +31,11 @@ html {
         a,
         p {
             font-size: 1rem;
+        }
+    }
+    a {
+        &:link, &:visited {
+            color: blue;
         }
     }
 }
