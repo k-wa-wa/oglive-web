@@ -1,7 +1,4 @@
 
-
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useRef } from "react";
 import styles from "./ToPageTopBtn.module.scss";
 
