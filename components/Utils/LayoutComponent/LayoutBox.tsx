@@ -34,7 +34,7 @@ const LayoutBox: React.VFC<Props> = (props) => {
             ?
             props.children
             :
-            <Reveal transformFrom="translate(5rem, 0)">
+            <Reveal transformFrom="translate(0, 3rem)">
               {props.children}
             </Reveal>
         }
