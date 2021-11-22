@@ -98,3 +98,16 @@ export const readCmsNofContents = async (liveVolume: number): Promise<{ count: n
   const data = await client.request(query, { liveVolume });
   return data.contentsConnection.aggregate;
 };
+
+export const readCmsAssetList = async (liveVolume: number): Promise<CmsAssetType[]> => {
+  // image url list
+  const query = gql`
+  query ($liveVolume: Int!) {
+    assets(where: { liveVolume: $liveVolume }) {
+      url
+    }
+  }
+  `;
+  const data = await client.request(query, { liveVolume });
+  return data.assets;
+};

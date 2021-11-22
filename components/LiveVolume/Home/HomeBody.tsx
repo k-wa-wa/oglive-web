@@ -1,3 +1,4 @@
+import Gallery from "./Gallery";
 import styles from "./HomeBody.module.scss";
 import WhatsNew from "@/components/LiveVolume/Home/WhatsNew";
 import Error from "@/components/Utils/Error";
@@ -33,6 +34,7 @@ const HomeBody: React.VFC<Props> = (props) => {
       </LayoutBox>
 
       <LayoutBox title="Gallery" img="/key.png">
+        <Gallery liveVolumeN={liveVolumeN}/>
       </LayoutBox>
     </div >
   );

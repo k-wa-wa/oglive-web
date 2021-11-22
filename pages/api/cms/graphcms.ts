@@ -1,7 +1,10 @@
 import { withApiAuthRequired, getSession } from '@auth0/nextjs-auth0';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {
-  readCmsAbout, readCmsContent, readCmsHome, readCmsNofContents, readCmsContentList, readCmsHomeList
+  readCmsAbout, readCmsContent,
+  readCmsHome, readCmsNofContents,
+  readCmsContentList, readCmsHomeList,
+  readCmsAssetList
 } from "@/modules/graphqlApi";
 
 
@@ -57,7 +60,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
       });
 
     } else if (pageType === "homes") {
+      // home(top) page
       return await readCmsHomeList().then(data => {
+        return res.status(200).json(data);
+      }).catch(err => {
+        console.log(err);
+        return res.status(400).end();
+      });
+
+    } else if (pageType === "assets") {
+      // asset list
+      return await readCmsAssetList(Number(liveVolume)).then(data => {
         return res.status(200).json(data);
       }).catch(err => {
         console.log(err);

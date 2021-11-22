@@ -150,3 +150,30 @@ export const useSwrReadCmsNofContents = (liveVolume: number | undefined): useSwr
     isError: error
   };
 };
+
+
+type useSwrReadCmsAssetListType = {
+  data: CmsAssetType[];
+  isLoading: boolean;
+  isError: boolean;
+}
+export const useSwrReadCmsAssetList = (liveVolume: number | undefined): useSwrReadCmsAssetListType => {
+  // assets(image) data
+  const fetcher = (url: string, liveVolume: number) => {
+    return axios.get(url, {
+      params: {
+        pageType: "assets", liveVolume
+      }
+    }).then(res => res.data);
+  };
+
+  const { data, error } = useSWR(
+    liveVolume ? [`/api/cms/graphcms`, liveVolume] : null, fetcher
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};

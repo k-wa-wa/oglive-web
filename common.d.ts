@@ -31,3 +31,7 @@ declare type CmsStaffType = {
   imageUrl: string;
   comment: string;
 }
+
+declare type CmsAssetType = {
+  url: string;
+}
