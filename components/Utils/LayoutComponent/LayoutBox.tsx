@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Parallax from "../Animation/Parallax";
+import Reveal from "../Animation/Reveal";
 import styles from "./LayoutBox.module.scss";
 import { useThemeContext } from "@/modules/theme-context";
 
@@ -15,19 +15,29 @@ const LayoutBox: React.VFC<Props> = (props) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.line}></div>
+      <Reveal transformFrom="scale(0, 1)" transformTo="scale(1, 1)">
+        <div className={styles.line}></div>
+      </Reveal>
 
       <div className={styles.vertical}>
-        <Parallax animVars={{ y: -100 }}>
+        <Reveal transformFrom="scale(0, 1)" transformTo="scale(1, 1)">
           <h2>{title}</h2>
           <div className={styles.img}>
             {(theme.name === "light" && props.img) && <Image src={props.img} layout="fill" alt={props.img} />}
           </div>
-        </Parallax>
+        </Reveal>
       </div>
 
       <div className={styles.box}>
-        {props.children}
+        {
+          props.fixedChildren
+            ?
+            props.children
+            :
+            <Reveal transformFrom="translate(0, 3rem)">
+              {props.children}
+            </Reveal>
+        }
       </div>
     </div>
   );

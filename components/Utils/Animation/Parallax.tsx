@@ -1,9 +1,7 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import React, { useEffect, useRef } from "react";
 import { useThemeContext } from "@/modules/theme-context";
 
-type Props = {
+/* type Props = {
   children: React.ReactNode;
   animVars?: gsap.TweenVars;
 };
@@ -36,6 +34,12 @@ const Parallax: React.FC<Props> = (props) => {
   );
   }
   return <>{props.children}</>;
+}; */
+type Props = {
+  children: React.ReactNode;
+  animVars?: any
 };
-
+const Parallax: React.FC<Props> = (props) => {
+  return (<>{props.children}</>);
+};
 export default Parallax;

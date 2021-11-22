@@ -1,4 +1,3 @@
-import Reveal from "@/components/Utils/Animation/Reveal";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
@@ -21,15 +20,11 @@ const ContentBody: React.VFC<Props> = (props) => {
 
   return (
     <div>
-      <Reveal animVars={{ y: 20 }}>
-        <PageTitle title={data.title} />
-      </Reveal>
+      <PageTitle title={data.title} />
 
-      <Reveal>
-        <LayoutBox title="" img="/guitar01.png">
-          <MdViewer body={data.body} />
-        </LayoutBox>
-      </Reveal>
+      <LayoutBox title="" img="/guitar01.png">
+        <MdViewer body={data.body} />
+      </LayoutBox>
     </div>
   );
 };

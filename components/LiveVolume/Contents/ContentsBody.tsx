@@ -2,7 +2,6 @@ import router from "next/router";
 
 import styles from "./ContentsBody.module.scss";
 import ContentsList from "@/components/LiveVolume/Contents/ContentsList";
-import Reveal from "@/components/Utils/Animation/Reveal";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 
@@ -30,34 +29,30 @@ const ContentsBody: React.VFC<Props> = (props) => {
 
   return (
     <div className={styles.root}>
-      <Reveal animVars={{ y: 20 }}>
-        <PageTitle title="その他のお知らせ" />
-      </Reveal>
+      <PageTitle title="その他のお知らせ" />
 
-      <Reveal animVars={{ y:0 }}>
-        <LayoutBox title="Contents" img="/gt.png">
-          <ContentsList
-            liveVolume={liveVolume}
-            contentsPerPage={CONTENTS_PER_PAGE} skip={skip} />
+      <LayoutBox title="Contents" img="/gt.png">
+        <ContentsList
+          liveVolume={liveVolume}
+          contentsPerPage={CONTENTS_PER_PAGE} skip={skip} />
 
-          <div className={styles.bottom}>
-            <div
-              className={styles.back}
-              style={{ display: pageN >= 2 ? "inline-block" : "none" }}
-              onClick={() => router.push(`/${liveVolume}/contents?page=${pageN - 1}`)} />
+        <div className={styles.bottom}>
+          <div
+            className={styles.back}
+            style={{ display: pageN >= 2 ? "inline-block" : "none" }}
+            onClick={() => router.push(`/${liveVolume}/contents?page=${pageN - 1}`)} />
 
-            <div>
-              {pageN}ページ
-              (/{Math.ceil(NofContents / CONTENTS_PER_PAGE)}ページ中)
-            </div>
-
-            <div
-              className={styles.next}
-              style={{ display: pageN * CONTENTS_PER_PAGE < NofContents ? "inline-block" : "none" }}
-              onClick={() => true && router.push(`/${liveVolume}/contents?page=${pageN + 1}`)} />
+          <div>
+            {pageN}ページ
+            (/{Math.ceil(NofContents / CONTENTS_PER_PAGE)}ページ中)
           </div>
-        </LayoutBox>
-      </Reveal>
+
+          <div
+            className={styles.next}
+            style={{ display: pageN * CONTENTS_PER_PAGE < NofContents ? "inline-block" : "none" }}
+            onClick={() => true && router.push(`/${liveVolume}/contents?page=${pageN + 1}`)} />
+        </div>
+      </LayoutBox>
     </div>
   );
 };
