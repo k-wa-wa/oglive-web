@@ -1,4 +1,3 @@
-import Parallax from "../Animation/Parallax";
 import Reveal from "../Animation/Reveal";
 import styles from "./PageTitle.module.scss";
 
