@@ -8,7 +8,7 @@ const ListBox: React.FC<Props> = (props) => {
   return (
     <div className={styles.root}>
       {props.children.map((child, i) => (
-        <div key={i} className={styles.box}>
+        <div key={i} className={styles.listBox}>
           <div className={styles.block}>
             {child}
           </div>

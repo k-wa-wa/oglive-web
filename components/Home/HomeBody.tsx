@@ -25,7 +25,7 @@ const HomeBody = () => {
       <Image src="/notes.png" width="200" height="100" alt="notes" />
 
 
-      <LayoutBox title="Next Live" fixedChildren={true}>
+      <LayoutBox title="Next Live">
         <ListBox>
           {[
             <div key={0} className={styles.next}>
@@ -43,7 +43,7 @@ const HomeBody = () => {
         </ListBox>
       </LayoutBox>
 
-      <LayoutBox title="Past Live" fixedChildren={true}>
+      <LayoutBox title="Past Live">
         <ListBox>
           {past.map(_past => (
             <Link key={_past.liveVolume} href="/[liveVolume]" as={`/vol${_past.liveVolume}`} passHref>
