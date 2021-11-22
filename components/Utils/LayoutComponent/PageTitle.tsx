@@ -1,4 +1,5 @@
 import Parallax from "../Animation/Parallax";
+import Reveal from "../Animation/Reveal";
 import styles from "./PageTitle.module.scss";
 
 type Props = {
@@ -7,9 +8,9 @@ type Props = {
 const PageTitle: React.VFC<Props> = (props) => {
   return (
     <div className={styles.root}>
-      <Parallax animVars={{ y: -200 }}>
+      <Reveal transformFrom="translate(0, -2rem)">
         <h2 className={styles.title}>{props.title}</h2>
-      </Parallax>
+      </Reveal>
     </div>
   );
 };
