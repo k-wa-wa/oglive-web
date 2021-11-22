@@ -29,9 +29,15 @@ const LayoutBox: React.VFC<Props> = (props) => {
       </div>
 
       <div className={styles.box}>
-        <Reveal transformFrom="translate(0, 5rem)">
-          {props.children}
-        </Reveal>
+        {
+          props.fixedChildren
+            ?
+            props.children
+            :
+            <Reveal transformFrom="translate(0, 5rem)">
+              {props.children}
+            </Reveal>
+        }
       </div>
     </div>
   );
