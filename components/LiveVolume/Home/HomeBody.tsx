@@ -1,6 +1,5 @@
 import styles from "./HomeBody.module.scss";
 import WhatsNew from "@/components/LiveVolume/Home/WhatsNew";
-import Reveal from "@/components/Utils/Animation/Reveal";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
@@ -23,28 +22,18 @@ const HomeBody: React.VFC<Props> = (props) => {
 
   return (
     <div className={styles.root}>
-      <Reveal animVars={{ y: 20 }}>
-          <PageTitle title={data.title} />
-      </Reveal>
+      <PageTitle title={data.title} />
 
-      <Reveal>
+      <LayoutBox title="Home" img="/gt.png">
+        <MdViewer body={data.body} />
+      </LayoutBox>
 
-        <LayoutBox title="Home" img="/gt.png">
-          <MdViewer body={data.body} />
-        </LayoutBox>
+      <LayoutBox title="What's New" img="/caj.png">
+        <WhatsNew liveVolume={liveVolume} />
+      </LayoutBox>
 
-      </Reveal>
-
-      <Reveal>
-        <LayoutBox title="What's New" img="/caj.png">
-          <WhatsNew liveVolume={liveVolume} />
-        </LayoutBox>
-      </Reveal>
-
-      <Reveal>
-        <LayoutBox title="Gallery" img="/key.png">
-        </LayoutBox>
-      </Reveal>
+      <LayoutBox title="Gallery" img="/key.png">
+      </LayoutBox>
     </div >
   );
 };

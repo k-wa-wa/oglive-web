@@ -1,5 +1,4 @@
 import StaffList from "@/components/LiveVolume/About/StaffList";
-import Reveal from "@/components/Utils/Animation/Reveal";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
@@ -22,15 +21,11 @@ const AboutBody: React.VFC<Props> = (props) => {
 
   return (
     <div>
-      <Reveal animVars={{ y: 20 }}>
-        <PageTitle title={data.title} />
-      </Reveal>
+      <PageTitle title={data.title} />
 
-      <Reveal>
-        <LayoutBox title="About" img="/key.png">
-          <MdViewer body={data.body} />
-        </LayoutBox>
-      </Reveal>
+      <LayoutBox title="About" img="/key.png">
+        <MdViewer body={data.body} />
+      </LayoutBox>
 
       <LayoutBox title="Staff" img="/caj.png" fixedChildren={true}>
         <StaffList />
