@@ -12,6 +12,7 @@ const PageTitle: React.VFC<Props> = (props) => {
     const el = ref.current;
     if (el) {
       const text = new ShuffleText(el);
+      text.duration = 800; // ms
       text.start();
     }
   }, []);
