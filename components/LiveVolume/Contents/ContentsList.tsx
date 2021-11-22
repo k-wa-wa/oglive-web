@@ -5,7 +5,7 @@ import Error from "@/components/Utils/Error";
 import ListBox from "@/components/Utils/LayoutComponent/ListBox";
 import ListBoxLoading from "@/components/Utils/LayoutComponent/ListBoxLoading";
 import NewIcon from "@/components/Utils/NewIcon";
-import { useSwrReadCmsContentList } from "@/modules/api";
+import { useSwrReadCmsContentList } from "@/modules/swr";
 
 const today = new Date();
 const NEW_CONTENT_THRESHOLD = 3; // この日数以内にupdateされたcontentは新しいとみなし、newIconをつける

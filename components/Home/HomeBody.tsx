@@ -7,7 +7,7 @@ import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import ListBox from "@/components/Utils/LayoutComponent/ListBox";
 import LoadingPage from "@/components/Utils/Loading/LoadingPage";
 import LoginPrompt from "@/components/Utils/LoginPrompt";
-import { useSwrReadCmsHomeList } from "@/modules/api";
+import { useSwrReadCmsHomeList } from "@/modules/swr";
 
 const HomeBody = () => {
   const { data, isLoading, isError } = useSwrReadCmsHomeList();

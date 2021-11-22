@@ -7,7 +7,7 @@ import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
 import LoadingBody from "@/components/Utils/Loading/LoadingBody";
-import { useSwrReadCmsNofContents } from "@/modules/api";
+import { useSwrReadCmsNofContents } from "@/modules/swr";
 
 const CONTENTS_PER_PAGE = 5;
 

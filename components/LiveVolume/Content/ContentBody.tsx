@@ -3,7 +3,7 @@ import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
 import LoadingBody from "@/components/Utils/Loading/LoadingBody";
 import MdViewer from "@/components/Utils/Markdown/MdViewer";
-import { useSwrReadCmsContent } from "@/modules/api";
+import { useSwrReadCmsContent } from "@/modules/swr";
 
 type Props = {
   liveVolume: queryParamsType;
