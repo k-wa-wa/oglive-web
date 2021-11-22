@@ -20,7 +20,7 @@ const LayoutBox: React.VFC<Props> = (props) => {
       </Reveal>
 
       <div className={styles.vertical}>
-        <Reveal transformFrom="translate(-10rem, 0)">
+        <Reveal transformFrom="scale(0, 1)" transformTo="scale(1, 1)">
           <h2>{title}</h2>
           <div className={styles.img}>
             {(theme.name === "light" && props.img) && <Image src={props.img} layout="fill" alt={props.img} />}
@@ -34,7 +34,7 @@ const LayoutBox: React.VFC<Props> = (props) => {
             ?
             props.children
             :
-            <Reveal transformFrom="translate(0, 5rem)">
+            <Reveal transformFrom="translate(5rem, 0)">
               {props.children}
             </Reveal>
         }
