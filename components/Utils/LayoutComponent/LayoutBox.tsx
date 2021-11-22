@@ -15,9 +15,11 @@ const LayoutBox: React.VFC<Props> = (props) => {
 
   return (
     <div className={styles.root}>
-      <Reveal transformFrom="translate(-5rem, 0)">
-        <div className={styles.line}></div>
-      </Reveal>
+      <div>
+        <Reveal transformFrom="scale(0, 1)" transformTo="scale(1, 1)">
+          <div className={styles.line}></div>
+        </Reveal>
+      </div>
 
       <div className={styles.vertical}>
         <Reveal transformFrom="translate(-10rem, 0)">
@@ -32,7 +34,6 @@ const LayoutBox: React.VFC<Props> = (props) => {
         <Reveal transformFrom="translate(0, 5rem)">
           {props.children}
         </Reveal>
-
       </div>
     </div>
   );
