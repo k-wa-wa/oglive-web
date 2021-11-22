@@ -1,15 +1,24 @@
-import Reveal from "../Animation/Reveal";
+import { useEffect, useRef } from "react";
+import ShuffleText from "shuffle-text";
 import styles from "./PageTitle.module.scss";
 
 type Props = {
   title: string;
 };
 const PageTitle: React.VFC<Props> = (props) => {
+  const ref = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (el) {
+      const text = new ShuffleText(el);
+      text.start();
+    }
+  }, []);
+
   return (
     <div className={styles.root}>
-      <Reveal transformFrom="translate(0, -2rem)">
-        <h2 className={styles.title}>{props.title}</h2>
-      </Reveal>
+      <h2 ref={ref} className={styles.title}>{props.title}</h2>
     </div>
   );
 };
