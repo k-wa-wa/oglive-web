@@ -43,7 +43,7 @@ const Reveal: React.FC<Props> = (props) => {
     return () => {
       window.removeEventListener("scroll", revealFunction);
     };
-  });
+  }, []);
 
   return (
     <div ref={ref}
