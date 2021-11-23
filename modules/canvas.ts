@@ -1,3 +1,5 @@
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export const drawText = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
   canvas.width = window.innerWidth;
@@ -193,4 +195,96 @@ export const drawText = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2
     window.removeEventListener("click", handleClick);
     canvas.height = 0;
   };
+};
+
+export const setPhotoGallery = (
+  canvas: HTMLCanvasElement, width: number, height: number, imageList: string[]) => {
+  const init = () => {// レンダラーを作成
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas, alpha: true
+    });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);//描画サイズ
+
+    // シーンを作成
+    const scene = new THREE.Scene();
+
+    //画像を配置
+    const setImages = () => {
+      // 初期配置
+      const initialXYZ = [
+        { x: 100, y: 0, z: 100 }, { x: 100, y: 0, z: -100 },
+        { x: -100, y: 0, z: 100 }, { x: -100, y: 0, z: -100 }
+      ];
+      for (let xyz of initialXYZ) {
+        const material = new THREE.SpriteMaterial({
+          map: new THREE.TextureLoader().load(imageList[Math.floor(Math.random() * imageList.length)]),
+        });
+        const sprite = new THREE.Sprite(material);
+        sprite.position.x = xyz.x;
+        sprite.position.y = xyz.y;
+        sprite.position.z = xyz.z;
+        // スケールを調整
+        sprite.scale.set(90, 60, 0);
+        scene.add(sprite);
+      }
+      for (let i = 0; i < 10; i++) {
+        //マテリアル作成
+        const material = new THREE.SpriteMaterial({
+          map: new THREE.TextureLoader().load(imageList[Math.floor(Math.random() * imageList.length)]),
+        });
+        const sprite = new THREE.Sprite(material);
+        // ランダムな座標に配置,中心を原点に持ってくるために「-0.5」(rondomは0〜１なので)
+        sprite.position.x = 200 * (Math.random() - 0.5);
+        sprite.position.y = 300 * (Math.random() - 0.5);
+        sprite.position.z = 200 * (Math.random() - 0.5);
+        // スケールを調整
+        sprite.scale.set(90, 60, 0);
+        scene.add(sprite);
+      }
+    };
+    setImages();
+
+    // 地面を作成
+    const plane = new THREE.GridHelper(0, 0, 0x888888, 0x888888);
+    scene.add(plane);
+
+    // カメラを作成
+    const camera = new THREE.PerspectiveCamera(30, width / height);
+    camera.position.set(240, 500, 500);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));//原点を見つめる
+
+    const controls = new OrbitControls(camera, canvas);
+    // 滑らかにカメラコントローラーを制御する
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.2;
+
+    let rot = 0;
+
+    const autoMove = () => {
+      rot += 0.3; // 毎フレーム角度を0.5度ずつ足していく
+      const radian = (rot * Math.PI) / 180;
+      // 角度に応じてカメラの位置を設定
+      camera.position.x = 300 * Math.sin(radian);
+      camera.position.y = 150 * (Math.cos(radian) + 1.5);
+      camera.position.z = 500 * Math.cos(radian);
+      camera.lookAt(new THREE.Vector3(0, 0, 0));//原点を見つめる
+    };
+
+    let animation: number;
+    // 毎フレーム時に実行されるループイベントです
+    const tick = () => {
+      autoMove();
+      controls.update();
+
+      // レンダリング
+      renderer.render(scene, camera);
+      animation = requestAnimationFrame(tick);
+    };
+
+    tick();
+  };
+  init();
+
+  window.addEventListener('resize', init);
 };
