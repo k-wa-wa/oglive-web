@@ -18,7 +18,7 @@ const Gallery: React.VFC<Props> = (props) => {
 
   const imgWidth = 400;
   const imgHeight = 250;
-
+console.log(data[0].url);
   return (
     <Splide options={{
       type: "loop",
