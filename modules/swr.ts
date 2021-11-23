@@ -177,3 +177,30 @@ export const useSwrReadCmsAssetList = (liveVolume: number | undefined): useSwrRe
     isError: error
   };
 };
+
+
+type useSwrReadCmsContactListType = {
+  data: CmsContactType[];
+  isLoading: boolean;
+  isError: boolean;
+}
+export const useSwrReadCmsContactList = (liveVolume: number | undefined): useSwrReadCmsContactListType => {
+  // contact us list data
+  const fetcher = (url: string, liveVolume: number) => {
+    return axios.get(url, {
+      params: {
+        pageType: "contacts", liveVolume
+      }
+    }).then(res => res.data);
+  };
+
+  const { data, error } = useSWR(
+    liveVolume ? [`/api/cms/graphcms`, liveVolume] : null, fetcher
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};

@@ -4,7 +4,8 @@ import {
   readCmsAbout, readCmsContent,
   readCmsHome, readCmsNofContents,
   readCmsContentList, readCmsHomeList,
-  readCmsAssetList
+  readCmsAssetList,
+  readCmsContactList
 } from "@/modules/graphqlApi";
 
 
@@ -71,6 +72,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
     } else if (pageType === "assets") {
       // asset list
       return await readCmsAssetList(Number(liveVolume)).then(data => {
+        return res.status(200).json(data);
+      }).catch(err => {
+        console.log(err);
+        return res.status(400).end();
+      });
+
+    } else if (pageType === "contacts") {
+      // contact us list
+      return await readCmsContactList(Number(liveVolume)).then(data => {
         return res.status(200).json(data);
       }).catch(err => {
         console.log(err);

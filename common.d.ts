@@ -14,12 +14,14 @@ declare type CmsAboutType = {
   id: string;
   title: string;
   body: string;
+  liveVolume?: number;
 }
 
 declare type CmsContentType = {
   id: string;
   title: string;
   body: string;
+  liveVolume?: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -34,4 +36,11 @@ declare type CmsStaffType = {
 
 declare type CmsAssetType = {
   url: string;
+}
+
+declare type CmsContactType = {
+  id: string;
+  title: string;
+  body: string;
+  liveVolume?: number;
 }

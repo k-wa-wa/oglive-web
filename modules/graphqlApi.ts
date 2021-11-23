@@ -111,3 +111,17 @@ export const readCmsAssetList = async (liveVolume: number): Promise<CmsAssetType
   const data = await client.request(query, { liveVolume });
   return data.assets;
 };
+
+export const readCmsContactList = async (liveVolume: number): Promise<CmsContactType[]> => {
+  // contact us list
+  const query = gql`
+  query ($liveVolume: Int!) {
+    contacts(where: { liveVolume: $liveVolume }, orderBy: createdAt_ASC ) {
+      title
+      body
+    }
+  }
+  `;
+  const data = await client.request(query, { liveVolume });
+  return data.contacts;
+};
