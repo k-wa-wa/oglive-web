@@ -1,5 +1,5 @@
-import Gallery from "./Gallery";
 import styles from "./HomeBody.module.scss";
+import Gallery from "@/components/LiveVolume/Home/Gallery";
 import WhatsNew from "@/components/LiveVolume/Home/WhatsNew";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
