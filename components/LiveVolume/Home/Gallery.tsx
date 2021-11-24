@@ -77,10 +77,10 @@ const Gallery: React.VFC<Props> = (props) => {
     return () => window.removeEventListener("resize", changeGalleryType);
   }, []);
 
-  if (!data) return <LoadingBody />;
-  if (data.length === 0) return <>準備中</>;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
+  if (!data) return <LoadingBody />;
+  if (data.length === 0) return <>準備中</>;
 
   const imgWidth = 400;
   const imgHeight = 250;

@@ -17,9 +17,9 @@ const HomeBody: React.VFC<Props> = (props) => {
   const liveVolumeN = Number(String(liveVolume).replace("vol", "")) || undefined;
   const { data, isLoading, isError } = useSwrReadCmsHome(liveVolumeN);
 
-  if (!data) return <>準備中</>;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
+  if (!data) return <>準備中</>;
 
   return (
     <div className={styles.root}>

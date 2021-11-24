@@ -15,9 +15,9 @@ const AboutBody: React.VFC<Props> = (props) => {
 
   const { data, isLoading, isError } = useSwrReadCmsAbout(liveVolumeN);
 
-  if (!data) return <>準備中</>;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
+  if (!data) return <>準備中</>;
 
   return (
     <div>
