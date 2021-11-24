@@ -98,3 +98,47 @@ export const readCmsNofContents = async (liveVolume: number): Promise<{ count: n
   const data = await client.request(query, { liveVolume });
   return data.contentsConnection.aggregate;
 };
+
+export const readCmsAssetList = async (liveVolume: number): Promise<CmsAssetType[]> => {
+  // image url list
+  const query = gql`
+  query ($liveVolume: Int!) {
+    assets(where: { liveVolume: $liveVolume }) {
+      url
+    }
+  }
+  `;
+  const data = await client.request(query, { liveVolume });
+  return data.assets;
+};
+
+export const readCmsContactList = async (liveVolume: number): Promise<CmsContactType[]> => {
+  // contact us list
+  const query = gql`
+  query ($liveVolume: Int!) {
+    contacts(where: { liveVolume: $liveVolume }, orderBy: createdAt_ASC ) {
+      title
+      body
+    }
+  }
+  `;
+  const data = await client.request(query, { liveVolume });
+  return data.contacts;
+};
+
+export const readCmsStaffList = async (liveVolume: number): Promise<CmsStaffType[]> => {
+  // staff list
+  const query = gql`
+  query ($liveVolume: Int!) {
+    staffs(where: { liveVolume: $liveVolume }) {
+      id
+      name
+      nickname
+      imageUrl
+      comment
+    }
+  }
+  `;
+  const data = await client.request(query, { liveVolume });
+  return data.staffs;
+};

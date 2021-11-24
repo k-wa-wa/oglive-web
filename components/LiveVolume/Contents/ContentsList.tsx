@@ -5,7 +5,7 @@ import Error from "@/components/Utils/Error";
 import ListBox from "@/components/Utils/LayoutComponent/ListBox";
 import ListBoxLoading from "@/components/Utils/LayoutComponent/ListBoxLoading";
 import NewIcon from "@/components/Utils/NewIcon";
-import { useSwrReadCmsContentList } from "@/modules/api";
+import { useSwrReadCmsContentList } from "@/modules/swr";
 
 const today = new Date();
 const NEW_CONTENT_THRESHOLD = 3; // この日数以内にupdateされたcontentは新しいとみなし、newIconをつける
@@ -21,6 +21,7 @@ const ContentsList: React.VFC<Props> = (props) => {
 
   if (isLoading) return <ListBoxLoading n={props.contentsPerPage} />;
   if (isError) return <Error />;
+  if (!data || !data.length) return <>準備中</>;
 
   const showNewIcon = (updatedAt: string): boolean => {
     const diff = (today.getTime() - (new Date(updatedAt)).getTime()) / (1000 * 60 * 60 * 24);

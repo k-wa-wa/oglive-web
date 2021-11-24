@@ -41,7 +41,7 @@ export const useSwrReadCmsHomeList = (): useSwrReadCmsHomeListType => {
     }).then(res => res.data);
   };
 
-  const { data, error } = useSWR([`/api/cms/graphcms`], fetcher);
+  const { data, error } = useSWR([`/api/cms/graphcms`, 2], fetcher);
 
   return {
     data,
@@ -63,7 +63,7 @@ export const useSwrReadCmsAbout = (liveVolume: number | undefined): useSwrReadCm
     }).then(res => res.data);
   };
 
-  const { data, error } = useSWR(liveVolume ? [`/api/cms/graphcms`, liveVolume, 2] : null, fetcher);
+  const { data, error } = useSWR(liveVolume ? [`/api/cms/graphcms`, liveVolume, 3] : null, fetcher);
 
   return {
     data,
@@ -86,7 +86,7 @@ export const useSwrReadCmsContent = (contentId: string | string[] | undefined): 
     }).then(res => res.data);
   };
 
-  const { data, error } = useSWR(contentId ? [`/api/cms/graphcms`, contentId] : null, fetcher);
+  const { data, error } = useSWR(contentId ? [`/api/cms/graphcms`, contentId, 4] : null, fetcher);
 
   return {
     data,
@@ -115,7 +115,7 @@ export const useSwrReadCmsContentList = (
 
   // skip === 0に注意
   const { data, error } = useSWR(
-    liveVolume && first && typeof skip !== "undefined" ? [`/api/cms/graphcms`, liveVolume, first, skip] : null, fetcher
+    liveVolume && first && typeof skip !== "undefined" ? [`/api/cms/graphcms`, liveVolume, first, skip, 5] : null, fetcher
   );
 
   return {
@@ -141,7 +141,88 @@ export const useSwrReadCmsNofContents = (liveVolume: number | undefined): useSwr
   };
 
   const { data, error } = useSWR(
-    liveVolume ? [`/api/cms/graphcms`, liveVolume] : null, fetcher
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 6] : null, fetcher
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
+
+type useSwrReadCmsAssetListType = {
+  data: CmsAssetType[];
+  isLoading: boolean;
+  isError: boolean;
+}
+export const useSwrReadCmsAssetList = (liveVolume: number | undefined): useSwrReadCmsAssetListType => {
+  // assets(image) data
+  const fetcher = (url: string, liveVolume: number) => {
+    return axios.get(url, {
+      params: {
+        pageType: "assets", liveVolume
+      }
+    }).then(res => res.data);
+  };
+
+  const { data, error } = useSWR(
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 7] : null, fetcher
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
+
+type useSwrReadCmsContactListType = {
+  data: CmsContactType[];
+  isLoading: boolean;
+  isError: boolean;
+}
+export const useSwrReadCmsContactList = (liveVolume: number | undefined): useSwrReadCmsContactListType => {
+  // contact us list data
+  const fetcher = (url: string, liveVolume: number) => {
+    return axios.get(url, {
+      params: {
+        pageType: "contacts", liveVolume
+      }
+    }).then(res => res.data);
+  };
+
+  const { data, error } = useSWR(
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 8] : null, fetcher
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
+
+type useSwrReadCmsStaffListType = {
+  data: CmsStaffType[];
+  isLoading: boolean;
+  isError: boolean;
+}
+export const useSwrReadCmsStaffList = (liveVolume: number | undefined): useSwrReadCmsStaffListType => {
+  // staff list data
+  const fetcher = (url: string, liveVolume: number) => {
+    return axios.get(url, {
+      params: {
+        pageType: "staffs", liveVolume
+      }
+    }).then(res => res.data);
+  };
+
+  const { data, error } = useSWR(
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 9] : null, fetcher
   );
 
   return {

@@ -40,6 +40,8 @@ const Reveal: React.FC<Props> = (props) => {
 
     revealFunction();
     window.addEventListener("scroll", revealFunction);
+    setTimeout(revealFunction, 2000);
+    setTimeout(revealFunction, 4000);
     return () => {
       window.removeEventListener("scroll", revealFunction);
     };

@@ -12,7 +12,7 @@ const Contact = () => {
       <LiveVolHeader liveVolume={liveVolume} />
 
       <div>
-        <ContactBody />
+        <ContactBody liveVolume={liveVolume} />
       </div>
     </div>
   );

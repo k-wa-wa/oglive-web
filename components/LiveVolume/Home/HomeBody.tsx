@@ -1,11 +1,12 @@
 import styles from "./HomeBody.module.scss";
+import Gallery from "@/components/LiveVolume/Home/Gallery";
 import WhatsNew from "@/components/LiveVolume/Home/WhatsNew";
 import Error from "@/components/Utils/Error";
 import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
 import LoadingBody from "@/components/Utils/Loading/LoadingBody";
 import MdViewer from "@/components/Utils/Markdown/MdViewer";
-import { useSwrReadCmsHome } from "@/modules/api";
+import { useSwrReadCmsHome } from "@/modules/swr";
 
 type Props = {
   liveVolume: queryParamsType;
@@ -16,9 +17,9 @@ const HomeBody: React.VFC<Props> = (props) => {
   const liveVolumeN = Number(String(liveVolume).replace("vol", "")) || undefined;
   const { data, isLoading, isError } = useSwrReadCmsHome(liveVolumeN);
 
-  if (data === "") return <a>create</a>;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
+  if (!data) return <>準備中</>;
 
   return (
     <div className={styles.root}>
@@ -33,6 +34,7 @@ const HomeBody: React.VFC<Props> = (props) => {
       </LayoutBox>
 
       <LayoutBox title="Gallery" img="/key.png">
+        <Gallery liveVolumeN={liveVolumeN}/>
       </LayoutBox>
     </div >
   );

@@ -4,7 +4,7 @@ import LayoutBox from "@/components/Utils/LayoutComponent/LayoutBox";
 import PageTitle from "@/components/Utils/LayoutComponent/PageTitle";
 import LoadingBody from "@/components/Utils/Loading/LoadingBody";
 import MdViewer from "@/components/Utils/Markdown/MdViewer";
-import { useSwrReadCmsAbout } from "@/modules/api";
+import { useSwrReadCmsAbout } from "@/modules/swr";
 
 type Props = {
   liveVolume: queryParamsType;
@@ -15,9 +15,9 @@ const AboutBody: React.VFC<Props> = (props) => {
 
   const { data, isLoading, isError } = useSwrReadCmsAbout(liveVolumeN);
 
-  if (data === "") return <a>create</a>;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
+  if (!data) return <>準備中</>;
 
   return (
     <div>
@@ -28,7 +28,7 @@ const AboutBody: React.VFC<Props> = (props) => {
       </LayoutBox>
 
       <LayoutBox title="Staff" img="/caj.png" fixedChildren={true}>
-        <StaffList />
+        <StaffList liveVolumeN={liveVolumeN} />
       </LayoutBox>
     </div>
   );
