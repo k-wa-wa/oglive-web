@@ -125,3 +125,20 @@ export const readCmsContactList = async (liveVolume: number): Promise<CmsContact
   const data = await client.request(query, { liveVolume });
   return data.contacts;
 };
+
+export const readCmsStaffList = async (liveVolume: number): Promise<CmsStaffType[]> => {
+  // staff list
+  const query = gql`
+  query ($liveVolume: Int!) {
+    staffs(where: { liveVolume: $liveVolume }) {
+      id
+      name
+      nickname
+      imageUrl
+      comment
+    }
+  }
+  `;
+  const data = await client.request(query, { liveVolume });
+  return data.staffs;
+};

@@ -195,7 +195,34 @@ export const useSwrReadCmsContactList = (liveVolume: number | undefined): useSwr
   };
 
   const { data, error } = useSWR(
-    liveVolume ? [`/api/cms/graphcms`, liveVolume] : null, fetcher
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 8] : null, fetcher
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error
+  };
+};
+
+
+type useSwrReadCmsStaffListType = {
+  data: CmsStaffType[];
+  isLoading: boolean;
+  isError: boolean;
+}
+export const useSwrReadCmsStaffList = (liveVolume: number | undefined): useSwrReadCmsStaffListType => {
+  // staff list data
+  const fetcher = (url: string, liveVolume: number) => {
+    return axios.get(url, {
+      params: {
+        pageType: "staffs", liveVolume
+      }
+    }).then(res => res.data);
+  };
+
+  const { data, error } = useSWR(
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 9] : null, fetcher
   );
 
   return {

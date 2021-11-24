@@ -15,7 +15,7 @@ const AboutBody: React.VFC<Props> = (props) => {
 
   const { data, isLoading, isError } = useSwrReadCmsAbout(liveVolumeN);
 
-  if (data === "") return <a>create</a>;
+  if (!data) return <LoadingBody />;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
 
@@ -28,7 +28,7 @@ const AboutBody: React.VFC<Props> = (props) => {
       </LayoutBox>
 
       <LayoutBox title="Staff" img="/caj.png" fixedChildren={true}>
-        <StaffList />
+        <StaffList liveVolumeN={liveVolumeN} />
       </LayoutBox>
     </div>
   );

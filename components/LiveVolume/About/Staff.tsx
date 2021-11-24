@@ -29,21 +29,18 @@ const Staff: React.VFC<Props> = (props) => {
         }
         ref.current.style.transform = `translate(${clientX}px, ${clientY}px) translate(${translateX}, ${translateY})`;
       }
-
     };
 
     window.addEventListener("mousemove", mouseMoveListener);
 
-    return () => {
-      window.removeEventListener("mousemove", mouseMoveListener);
-    };
+    return () => window.removeEventListener("mousemove", mouseMoveListener);
   }, []);
 
   return (
     <div className={styles.root}>
       <div className={styles.item}>
         <div className={styles.imgBox}>
-          <Image src={staff.imageUrl} width={imgSize} height={imgSize} alt="staff" />
+          <Image src={staff.imageUrl ?? "/staff.svg"} width={imgSize} height={imgSize} alt="staff" />
         </div>
       </div>
 

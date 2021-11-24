@@ -1,25 +1,27 @@
 import styles from "./StaffList.module.scss";
 import Staff from "@/components/LiveVolume/About/Staff";
+import Error from "@/components/Utils/Error";
+import LoadingBody from "@/components/Utils/Loading/LoadingBody";
+import { useSwrReadCmsStaffList } from "@/modules/swr";
 
-const StaffList = () => {
-  const data: CmsStaffType[] = [];
-  //const staffData = data.length >= 1 ? data : []
-  const staffData = [
-    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "1", comment: "comment"}, 
-    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "2", comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "3", comment: "" }, 
-    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "4", comment: "" },
-    { imageUrl: "/staff.svg", name: "Unknown", nickname: "unknown", id: "5", comment: "" }
-  ];
+
+type Props = {
+  liveVolumeN: number | undefined;
+}
+const StaffList: React.VFC<Props> = (props) => {
+  const { data, isLoading, isError } = useSwrReadCmsStaffList(props.liveVolumeN);
+
+  if (!data) return <></>;
+  if (isLoading) return <LoadingBody />;
+  if (isError) return <Error />;
 
   return (
     <div className={styles.root}>
-      {staffData.map(staff => (
+      {data.map(staff => (
         <div key={staff.id} className={styles.itemBox}>
           <Staff staff={staff} />
         </div>
       ))}
-
     </div>
   );
 };
