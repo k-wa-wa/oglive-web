@@ -41,7 +41,7 @@ export const useSwrReadCmsHomeList = (): useSwrReadCmsHomeListType => {
     }).then(res => res.data);
   };
 
-  const { data, error } = useSWR([`/api/cms/graphcms`], fetcher);
+  const { data, error } = useSWR([`/api/cms/graphcms`, 2], fetcher);
 
   return {
     data,
@@ -63,7 +63,7 @@ export const useSwrReadCmsAbout = (liveVolume: number | undefined): useSwrReadCm
     }).then(res => res.data);
   };
 
-  const { data, error } = useSWR(liveVolume ? [`/api/cms/graphcms`, liveVolume, 2] : null, fetcher);
+  const { data, error } = useSWR(liveVolume ? [`/api/cms/graphcms`, liveVolume, 3] : null, fetcher);
 
   return {
     data,
@@ -86,7 +86,7 @@ export const useSwrReadCmsContent = (contentId: string | string[] | undefined): 
     }).then(res => res.data);
   };
 
-  const { data, error } = useSWR(contentId ? [`/api/cms/graphcms`, contentId] : null, fetcher);
+  const { data, error } = useSWR(contentId ? [`/api/cms/graphcms`, contentId, 4] : null, fetcher);
 
   return {
     data,
@@ -115,7 +115,7 @@ export const useSwrReadCmsContentList = (
 
   // skip === 0に注意
   const { data, error } = useSWR(
-    liveVolume && first && typeof skip !== "undefined" ? [`/api/cms/graphcms`, liveVolume, first, skip] : null, fetcher
+    liveVolume && first && typeof skip !== "undefined" ? [`/api/cms/graphcms`, liveVolume, first, skip, 5] : null, fetcher
   );
 
   return {
@@ -141,7 +141,7 @@ export const useSwrReadCmsNofContents = (liveVolume: number | undefined): useSwr
   };
 
   const { data, error } = useSWR(
-    liveVolume ? [`/api/cms/graphcms`, liveVolume] : null, fetcher
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 6] : null, fetcher
   );
 
   return {
@@ -168,7 +168,7 @@ export const useSwrReadCmsAssetList = (liveVolume: number | undefined): useSwrRe
   };
 
   const { data, error } = useSWR(
-    liveVolume ? [`/api/cms/graphcms`, liveVolume] : null, fetcher
+    liveVolume ? [`/api/cms/graphcms`, liveVolume, 7] : null, fetcher
   );
 
   return {
