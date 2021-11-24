@@ -78,6 +78,7 @@ const Gallery: React.VFC<Props> = (props) => {
   }, []);
 
   if (!data) return <LoadingBody />;
+  if (data.length === 0) return <>準備中</>;
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
 

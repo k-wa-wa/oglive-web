@@ -19,6 +19,7 @@ const ContentsList: React.VFC<Props> = (props) => {
   const liveVolumeN = Number(String(props.liveVolume).replace("vol", "")) || undefined;
   const { data, isLoading, isError } = useSwrReadCmsContentList(liveVolumeN, props.contentsPerPage, props.skip);
 
+  if (!data || !data.length) return <>準備中</>;
   if (isLoading) return <ListBoxLoading n={props.contentsPerPage} />;
   if (isError) return <Error />;
 
