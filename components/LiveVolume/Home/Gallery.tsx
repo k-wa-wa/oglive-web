@@ -80,7 +80,13 @@ const Gallery: React.VFC<Props> = (props) => {
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
   if (!data) return <LoadingBody />;
-  if (data.length === 0) return <>準備中</>;
+  if (data.length === 0) return (
+    <div>
+      <>準備中</>
+      <br />
+      <Link href="/[liveVolume]" as={`/vol${liveVolumeN && liveVolumeN - 1}`}>去年の様子はこちら(ページ下部)→</Link>
+    </div>
+  );
 
   const imgWidth = 400;
   const imgHeight = 250;
