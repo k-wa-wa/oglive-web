@@ -1,5 +1,6 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect, useState } from 'react';
 import styles from "./Gallery.module.scss";
 import Error from "@/components/Utils/Error";
@@ -61,7 +62,8 @@ type Props = {
   liveVolumeN: number | undefined;
 }
 const Gallery: React.VFC<Props> = (props) => {
-  const { data, isLoading, isError } = useSwrReadCmsAssetList(props.liveVolumeN);
+  const liveVolumeN = props.liveVolumeN;
+  const { data, isLoading, isError } = useSwrReadCmsAssetList(liveVolumeN);
   const [galleryType, setGalleryType] = useState<"Three" | "Splide" | "">("Three");
 
   const changeGalleryType = () => {
