@@ -16,7 +16,7 @@ const StaffImage: React.VFC<Props> = (props) => {
     const randomChoiceImageUrl = () => {
       imageUrlList.length > 0 && setImageUrl(imageUrlList[Math.floor(Math.random() * imageUrlList.length)]);
     };
-    const intervalFunc = setInterval(randomChoiceImageUrl, 2000);
+    const intervalFunc = setInterval(randomChoiceImageUrl, 3000);
     return () => clearInterval(intervalFunc);
   }, [imageUrlList]);
 
