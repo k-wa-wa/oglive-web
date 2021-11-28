@@ -1,0 +1,9 @@
+.root {
+    img {
+        transition: 0.3s all ease-in-out;
+        border-radius: 50%;
+        &:hover {
+            border-radius: 50% 50% 50% 50% / 21% 21% 79% 79%;
+        }
+    }
+}

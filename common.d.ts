@@ -30,7 +30,7 @@ declare type CmsStaffType = {
   id: string;
   name: string;
   nickname: string;
-  imageUrl: string;
+  imageUrlList: string[];
   comment: string;
 }
 

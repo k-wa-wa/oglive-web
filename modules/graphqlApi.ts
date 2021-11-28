@@ -134,7 +134,7 @@ export const readCmsStaffList = async (liveVolume: number): Promise<CmsStaffType
       id
       name
       nickname
-      imageUrl
+      imageUrlList
       comment
     }
   }

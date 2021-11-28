@@ -16,7 +16,7 @@ type Props = {
 const MdViewer: React.VFC<Props> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  /* useEffect(() => {
     // markdownのレンダリングが遅い。
     // レンダリング前に要素が小さすぎてしまうので、scssでmin-heightを設定しているが、レンダリング後は不要(逆に大きな空白ができる可能性。)
     // なので、一定時間経過後はmin-heightを解除する。
@@ -25,7 +25,7 @@ const MdViewer: React.VFC<Props> = (props) => {
         ref.current.style.minHeight = "20vh";
       }
     }, 3000);
-  }, []);
+  }, []); */
 
   return (
     <div ref={ref} className={styles.root}>

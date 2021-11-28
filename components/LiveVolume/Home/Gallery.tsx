@@ -1,5 +1,6 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect, useState } from 'react';
 import styles from "./Gallery.module.scss";
 import Error from "@/components/Utils/Error";
@@ -61,7 +62,8 @@ type Props = {
   liveVolumeN: number | undefined;
 }
 const Gallery: React.VFC<Props> = (props) => {
-  const { data, isLoading, isError } = useSwrReadCmsAssetList(props.liveVolumeN);
+  const liveVolumeN = props.liveVolumeN;
+  const { data, isLoading, isError } = useSwrReadCmsAssetList(liveVolumeN);
   const [galleryType, setGalleryType] = useState<"Three" | "Splide" | "">("Three");
 
   const changeGalleryType = () => {
@@ -80,7 +82,13 @@ const Gallery: React.VFC<Props> = (props) => {
   if (isLoading) return <LoadingBody />;
   if (isError) return <Error />;
   if (!data) return <LoadingBody />;
-  if (data.length === 0) return <>準備中</>;
+  if (data.length === 0) return (
+    <div>
+      <>準備中</>
+      <br />
+      <Link href="/[liveVolume]" as={`/vol${liveVolumeN && liveVolumeN - 1}`}>去年の様子はこちら(ページ下部)→</Link>
+    </div>
+  );
 
   const imgWidth = 400;
   const imgHeight = 250;

@@ -1,15 +1,15 @@
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./Staff.module.scss";
+import StaffImage from "./StaffImage";
 
 type Props = {
   staff: CmsStaffType
 }
 const Staff: React.VFC<Props> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const imgSize = 150;
   const staff = props.staff;
+
 
   useEffect(() => {
     const centerX = window.innerWidth / 2;
@@ -39,9 +39,7 @@ const Staff: React.VFC<Props> = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.item}>
-        <div className={styles.imgBox}>
-          <Image src={staff.imageUrl ?? "/staff.svg"} width={imgSize} height={imgSize} alt="staff" />
-        </div>
+        <StaffImage imageUrlList={staff.imageUrlList} />
       </div>
 
       <br />
